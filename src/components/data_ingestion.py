@@ -9,6 +9,9 @@ from src.exception import customException
 from src.logger import logging
 from src.components.data_transformation import DataTransformation
 
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import ModelTrainerConfig
+
 
 @dataclass
 class DataIngestionConfig:
@@ -94,6 +97,9 @@ if __name__ == "__main__":
             test_data
         )
     )
+
+    modeltrainer = ModelTrainer()
+    print(modeltrainer.initiate_model_trainer(train_arr, test_arr))
 
     print("Preprocessor saved at:", preprocessor_path)
     print("Program completed")
